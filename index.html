@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Note</title>
+  <link rel="stylesheet" href="src/style.css">
+  <style>
+
+  </style>
+  <script src="src/jq.js"></script>
+  <script src="src/sortable.js"></script>
+
+</head>
+<body>
+
+<div class="form-todo">
+  <input class="todo-input" type="text" placeholder="Add note...">
+  <button class="todo-btn" type="submit">add</button>
+</div>
+
+<div class="box">
+
+  <div class="list segment-1"> 
+    <h1>todo</h1>
+
+    <ul id="sortable1" class="connectedSortable">
+
+    </ul>
+  </div>
+  <div class="list segment-2">
+    <h1>progress</h1>
+
+    <ul id="sortable2" class="connectedSortable">
+
+    </ul>
+  </div>
+  <div class="list segment-3"> 
+    <h1>done</h1>
+
+    <ul id="sortable3" class="connectedSortable">
+
+    </ul>    
+  </div>
+
+</div>
+
+
+<script src="src/custom.js">
+</script>
+</body>
+</html>
