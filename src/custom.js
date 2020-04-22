@@ -81,6 +81,7 @@ $(function() {
   }
   function reloadList() {
 
+
     for (let i = 0 ; i < storedNotes.queue.length ; i++) {
                 
       var inputText = $("<p class='input-text'></p>").text(storedNotes.queue[i].note_data);
@@ -93,6 +94,15 @@ $(function() {
       input.width($(this).width());
       $(this).append(input);
       input.focus();
+
+      input.keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+          storedNotes.queue[i].note_data = $(this).val();
+          localStorage.setItem('notes', JSON.stringify(storedNotes));
+          $(this).parent().text($(this).val());    
+        }
+      });
       input.focusout(function(){
 
           storedNotes.queue[i].note_data = $(this).val();
@@ -150,8 +160,7 @@ $(function() {
 
   }
   
-
-  $(".todo-btn").click(function(){
+  function addNote(){
     var a = $(".todo-input").val();
     var noteList = [];
     for (let index = 0; index < storedNotes.queue.length; index++) {
@@ -171,6 +180,15 @@ $(function() {
       reloadList();
 
     }
+  }
+
+  $(".todo-btn").click(function(){
+    addNote();
   });
 
-
+  $('.todo-input').keypress(function(event){
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  if(keycode == '13'){
+    addNote();
+  }
+});
