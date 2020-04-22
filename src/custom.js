@@ -88,10 +88,9 @@ $(function() {
       inputText.dblclick(function(){
         
       var tempValue = $(this).text();
-      $(this).text("");
+      $(this).text("Update note");
       var input = $("<textarea  class='update-todo'> style='' ").val(tempValue);
       input.width($(this).width());
-      input.height(50);
       $(this).append(input);
       input.focus();
       input.focusout(function(){
